@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       react项目测试呀
-      <img src={require('../public/images/cat.jpg')} />
+      <img src={require('./assets/images/cat.jpg')} />
     </div>
   )
 }

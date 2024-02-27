@@ -5,7 +5,7 @@ const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: "./src/index.js",
+    app: "./src/index.tsx",
   },
   output: {
     path: path.resolve(__dirname, "../dist"),
@@ -34,6 +34,14 @@ module.exports = {
         ],
       },
       {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        include: [path.resolve("./src")],
+        use: {
+          loader: 'ts-loader',
+        },
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         exclude: /node_modules/,
         include: [path.resolve("./src/assets/images")],
@@ -59,4 +67,7 @@ module.exports = {
     port: 8000,
     open: true,
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
+  }
 };

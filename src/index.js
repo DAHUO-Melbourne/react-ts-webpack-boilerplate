@@ -5,7 +5,10 @@ import ReactDOM from 'react-dom';
 
 const App = () => {
   return (
-    <div>react项目测试呀</div>
+    <div>
+      react项目测试呀
+      <img src={require('../public/images/cat.jpg')} />
+    </div>
   )
 }
 

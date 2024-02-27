@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -15,7 +16,20 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['css-loader']
+        exclude: /node_module/,
+        use: [
+          {loader: MiniCssExtractPlugin.loader},
+          'css-loader',
+          'less-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('autoprefixer')]
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.js|tsx$/,
@@ -26,11 +40,27 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        exclude: /node_module/,
+        include: [path.resolve("./public/images")],
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              esModule: false
+            }
+          }
+        ],
+        type: 'javascript/auto'
       }
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({template: './src/index.html'})
+    new HtmlWebpackPlugin({template: './src/index.html'}),
+    new MiniCssExtractPlugin(),
   ],
   devServer: {
     port: 8000,

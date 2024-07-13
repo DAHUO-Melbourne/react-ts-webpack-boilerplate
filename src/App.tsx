@@ -6,7 +6,7 @@ const App = () => {
       react项目测试呀
       <img src={require('./assets/images/cat.jpg')} />
     </div>
-  )
-}
+  );
+};
 
 export default App;

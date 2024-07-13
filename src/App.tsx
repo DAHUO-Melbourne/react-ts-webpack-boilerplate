@@ -1,11 +1,11 @@
 import React from 'react';
-import catImg from './assets/images/cat.jpg';
+import './styles.scss';
 
 const App = () => {
   return (
-    <div>
-      react项目测试呀
-      <img src={catImg} />
+    <div className="container">
+      <h1>Hello SCSS</h1>
+      <button className="button">点击我</button>
     </div>
   );
 };

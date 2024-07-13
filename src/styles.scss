@@ -22,3 +22,61 @@ $primary-color: palevioletred;
     background: darkred;
   }
 }
+
+// .grid-table {
+//   display: grid;
+//   max-width: 1000px;
+//   width: 100%;
+//   border: 1px solid black;
+//   border-collapse: collapse;
+//   grid-template-columns: 1fr 1fr 1fr;
+//   grid-template-rows: auto;
+
+//   .header {
+//     background-color: #333;
+//     color: white;
+//     padding: 10px;
+//     border-bottom: 1px solid black;
+//     text-align: center;
+//     font-weight: bold;
+//   }
+
+//   .cell {
+//     padding: 10px;
+//     border-bottom: 1px solid black;
+//     text-align: center;
+//   }
+
+//   .header:nth-child(3n) {
+//     border-right: none;
+//   }
+
+//   .cell:nth-child(3n) {
+//     border-right: none;
+//   }
+// }
+
+.grid-table {
+  display: grid;
+  max-width: 1000px;
+  width: 100%;
+  height: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  border: 1px solid black;
+
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .cell {
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+  }
+}
